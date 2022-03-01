@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         // emits an updated list of users connected to the server
         io.emit('users-on-server', {user: users});
 
-        socket.broadcast.emit('user-conn-message', {message: `${users[socket.id]} has joined the chat.`})
+        socket.broadcast.emit('user-conn-message', {message: `${users[socket.id]} joined`})
 
         // console.log(users);
     }) 
@@ -54,7 +54,7 @@ io.on('connection', (socket) => {
         // io.emit('disconnected', users[socket.id]);
         console.log(`${users[socket.id]} disconnected`);
         
-        io.emit('disconnected', {user: socket.id, messageDisc: `${users[socket.id]} has left the chat` });
+        io.emit('disconnected', {user: socket.id, messageDisc: `${users[socket.id]} left` });
         // deletes the user from the users array
         delete users[socket.id];
     })
