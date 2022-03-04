@@ -27,9 +27,6 @@ io.on('connection', (socket) => {
     // console.log('A user has connected');
     // // this is a custom event we emit on the server side. Can be anything
     // // id = how the socket tracks each connection
-
-    // adds the id to the user list
-    // users[socket.id] = socket.id;
     io.emit("CONNECTED", socket.id);
 
 
@@ -44,9 +41,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('user-conn-message', {message: `${users[socket.id]} joined`})
 
         // console.log(users);
-    }) 
-    
-    // Listen for the user name and sets the user object so we can use it
+    })
 
     // When a user disconnects, share with the others and delete from the list of users active
     socket.on('disconnect', () => {
@@ -62,7 +57,6 @@ io.on('connection', (socket) => {
     // listen for incoming messages
     socket.on('SEND_MESSAGE', function(data){
         console.log(`${data.user} sent a message: ${data.message}`);
-
 
         // send back to everyone whos connected
         io.emit('MESSAGE', data);
