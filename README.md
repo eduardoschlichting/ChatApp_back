@@ -34,10 +34,6 @@
   <a href="#memo-license">License</a>
 </p>
 
-<h1 align="center">
-    <img src="./dist/port_home.png" alt="Mini"> 
-</h1>
-
 ## :page_with_curl: About
 
 The App makes use of the Socket.io library to build a realtime chat application. The app makes possible the communication between two or more clients in a specified server.
